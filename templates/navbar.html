@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="">
+        <img src="{{url_for('static', filename='pic.jpeg')}}" width="100" height="50" class="d-inline-block align-text-top">
+      </a>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#insert_modal">Add Student</button>
+        </li>
+      </ul>
+    </div>
+  
+  </nav>
+  
+  
+  
+  
+  <!-- Modal  for inserting the student -->
+  <div id="insert_modal" class="modal fade" role="dialog">
+     <div class="modal-dialog">
+        <div class="modal-content">
+           <div class="modal-header">
+              <h4 class="modal-title">Add Student</h4>
+           </div>
+           <div class="modal-body">
+  
+              <form action="{{url_for('insert_book')}}" method="POST">
+  
+  
+                 <div class="form-group">
+                    <label>Uni:</label>
+                    <input type="text" class="form-control" name="uni" required="1">
+                 </div>
+  
+  
+                  <div class="form-group">
+                    <label>First Name:</label>
+                    <input type="text" class="form-control" name="first_name" required="1">
+                 </div>
+  
+                   <div class="form-group">
+                    <label>Last Name:</label>
+                    <input type="text" class="form-control" name="last_name" required="1">
+                 </div>
+
+                 <div class="form-group">
+                    <label>Email:</label>
+                    <input type="text" class="form-control" name="email" required="1">
+                 </div>
+  
+                 <div class="form-group">
+                    <button class="btn btn-primary mt-4" type="submit">Add Student</button>
+                 </div>
+  
+  
+              </form>
+  
+  
+           </div>
+  
+  
+           <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+  
+           </div>
+  
+        </div>
+     </div>
+  
+  </div>
