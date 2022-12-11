@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 
-app = Flask(__name__)
-
+application = Flask(__name__)
+app = application
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://gudmundurmj:gudmundur@localhost/project_db'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://admin:password@pdb.cdxlgoybrmsi.us-east-1.rds.amazonaws.com/project_db'
 
@@ -69,6 +69,6 @@ def delete(auto_id):
 
 
 if __name__ == "__main__":
-    #app.run(debug=True)
-    app.run(host='0.0.0.0')
+    app.run(debug=True)
+    #app.run(host='0.0.0.0')
     #host='0.0.0.0'
