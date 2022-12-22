@@ -1,5 +1,7 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, Response
 from flask_sqlalchemy import SQLAlchemy
+import json
+
 
 application = Flask(__name__)
 app = application
@@ -23,6 +25,8 @@ class Student(db.Model):
         self.first_name = first_name
         self.last_name = last_name
         self.email = email
+
+
 
 @app.route("/")
 def index():
@@ -67,6 +71,11 @@ def delete(auto_id):
     flash("Student is deleted")
     return redirect(url_for('index'))
 
+
+@app.route("/students/")
+def index2():
+    students = db.session.query(Student.uni, Student.first_name, Student.last_name, Student.email).filter_by(uni="gmj2122").first()
+    return Response(str(students), status = 200, content_type="application/json")
 
 if __name__ == "__main__":
     #app.run(debug=True)
