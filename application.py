@@ -63,7 +63,7 @@ def update():
         return redirect(url_for('index'))
 
 
-@app.route('/delete/<id>/', methods = ['GET', 'POST'])
+@app.route('/delete/<auto_id>/', methods = ['GET', 'POST'])
 def delete(auto_id):
     my_data = Student.query.get(auto_id)
     db.session.delete(my_data)
