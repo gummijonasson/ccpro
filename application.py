@@ -77,6 +77,13 @@ def index2():
     students = db.session.query(Student.uni, Student.first_name, Student.last_name, Student.email).filter_by(uni="gmj2122").first()
     return Response(str(students), status = 200, content_type="application/json")
 
+@app.route("/k")
+def index3():
+    students = db.session.query(Student.uni, Student.first_name, Student.last_name, Student.email).all()
+    #return Response(str(students), status = 200, content_type="application/json")
+    #return render_template('index.html', students=students)
+    return Response(json.dumps(str(students)), status=200, content_type="application.json")
+
 if __name__ == "__main__":
     #app.run(debug=True)
     app.run(host='0.0.0.0', port=8000)
